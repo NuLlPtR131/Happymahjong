@@ -163,7 +163,7 @@ class Gamer:
             check_each_type(self, self.common_type[i],self.str_commontype[i])
         check_feng(self)
 
-    # 胡了！
+    # 胡了
     def win(self):
         if list(self.winflag.values()) == [1, 1, 1, 1] and sum([len(self.cupple[each]) for each in self.cupple]) == 1:
             g.msgbox('玩家%s胡了！\n%s' % (self.name, str(self.majiang_type) + 3 * str(self.peng_majiang) + 4 * str(self.angang_majiang)))
@@ -626,15 +626,7 @@ i = 0
 msg ="请问你希望选择什么难度？"
 title = "互动"
 choices = ["1", "2"]
-while 1:
-    choice = g.choicebox(msg, title, choices)
-    # cancel键
-    if choice == None:
-        sys.exit()
-    else:
-        print(choice)
-        break
-
+choice = g.choicebox(msg, title, choices)
 while majiang != []:
     while i < 4:
         gang_flag = 0
@@ -647,6 +639,8 @@ while majiang != []:
         except IndexError:
             g.msgbox('平局了！')
             sys.exit()
+
+
 
         def watch():
             global put1
@@ -677,3 +671,6 @@ while majiang != []:
                 i = 0
             else:
                 i += 1
+
+
+
